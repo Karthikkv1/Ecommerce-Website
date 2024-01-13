@@ -14,3 +14,19 @@
     height:200px;
     object-fit: contain; /*To fit images into size of container*/
 }
+
+.admin_image{
+    width:100px;
+    object-fit: contain;
+}
+
+.b1{
+    margin: 16;
+    padding: 25px;
+    box-sizing: border-box;
+}
+/* For index.php admin_area */
+.footer1{
+    position: absolute;
+    bottom: 0;
+}
