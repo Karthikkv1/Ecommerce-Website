@@ -1,3 +1,10 @@
+<!-- Including connect.php file using php syntax -->
+
+<?php
+include('includes/connect.php');          //20-01-2024
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,13 +14,13 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <!-- Font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
+
     <!-- External css -->
     <link rel="stylesheet" href="./style.css">
 
@@ -179,26 +186,26 @@
                             <h4>Delivery Brands</h4>
                         </a>
                     </li>
+                    <!--20-01-2024-->
+                    <?php
+                    $select_brands = "Select * from `brands` ";
+                    $result_brands = mysqli_query($con, $select_brands);
+                    // $row_data=mysqli_fetch_assoc($result_brands); //To fetch data from database
+                    // echo $row_data['brand_title'];  //brand_title because in brand table of database column name is brand_title       
+                    
+                    //To display all the brands in the database
+                    
+                    while ($row_data = mysqli_fetch_assoc($result_brands)) {
+                        $brand_title = $row_data['brand_title'];
+                        $brand_id = $row_data['brand_id']; //brand_id,brand_title from database
+                        echo "  <li class='nav-item '>
+                        <a href='index.php?brand=$brand_id' class='nav-link text-light '>$brand_title</a>  
+                    </li>";
+                    }
+                    //line 202 is for //To call brand name from database and display it in webpage
+                    
+                    ?>
 
-                    <li class="nav-item ">
-                        <a href="#" class="nav-link text-light ">Brand1</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Brand2</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Brand3</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Brand4</a>
-                    </li>
-
-                    <li class="nav-item ">
-                        <a href="#" class="nav-link text-light ">Brand5</a>
-                    </li>
 
 
                 </ul>
@@ -211,26 +218,24 @@
                             <h4>Categories</h4>
                         </a>
                     </li>
+                    <?php
+                    $select_categories = "Select * from `categories` ";
+                    $result_categories = mysqli_query($con, $select_categories);
+                       
+                    
+                    //To display all the categories in the database
+                    
+                    while ($row_data = mysqli_fetch_assoc($result_categories)) {
+                        $category_title = $row_data['category_title'];
+                        $category_id = $row_data['category_id']; //brand_id,brand_title from database
+                        echo "  <li class='nav-item '>
+                        <a href='index.php?category=$category_id' class='nav-link text-light '>$category_title</a>  
+                    </li>";
+                    }
+                    //line 232 is for //To call category name from database and display it in webpage
+                    
+                    ?>
 
-                    <li class="nav-item ">
-                        <a href="#" class="nav-link text-light ">Categories1</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Categories2</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Categories3</a>
-                    </li>
-
-                    <li class="nav-item  ">
-                        <a href="#" class="nav-link text-light ">Categories4</a>
-                    </li>
-
-                    <li class="nav-item ">
-                        <a href="#" class="nav-link text-light ">Categories5</a>
-                    </li>
 
 
                 </ul>
@@ -240,7 +245,7 @@
         </div>
 
 
-<!-- Footer -->
+        <!-- Footer -->
         <div class="bg-info p-3 text-center">
             <p>All rights reserved Designed by Karthik 2024</P>
         </div>
