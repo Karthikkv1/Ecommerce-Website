@@ -92,17 +92,17 @@ include('includes/connect.php');          //20-01-2024
         </div>
 
         <!-- Fourth Child -->
-        <div class="row px-3">
+        <div class="row px-1">
 
             <div class="col-md-10">
                 <div class="row">
                     <!-- // Fetching products and displaying products from the database 21-01-2024 -->
                     <?php
-                    $select_query="Select * from `products`";
+                    $select_query="Select * from `products` order by rand() limit 0,9";
                     $result_query=mysqli_query($con,$select_query);
                     // $row=mysqli_fetch_assoc($result_query);
                     // echo $row['product_title'];
-                    while( $row=mysqli_fetch_assoc($result_query))
+                    while($row=mysqli_fetch_assoc($result_query))
                     {
                         $product_id = $row['product_id']; //product_id as mentioned in database
                         $product_title = $row['product_title'];
@@ -115,7 +115,7 @@ include('includes/connect.php');          //20-01-2024
 
                         echo "  <div class='col-md-4 mb-2'>
                         <div class='card'>
-                            <img src='./admin_area/product_images/$product_image1' class='card-img-top' alt='$product_title'>
+                            <img src='./admin_area/product_images/ $product_image1' class='card-img-top' alt='$product_title'> 
                             <div class='card-body'>
                                 <h5 class='card-title'>$product_title</h5>
                                 <p class='card-text'>$product_description
@@ -132,18 +132,7 @@ include('includes/connect.php');          //20-01-2024
                     }
 
                      ?>
-                    <!-- <div class="col-md-4 mb-2">
-                        <div class="card">
-                            <img src="./Images/55.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of the card's content.</p>
-                                <a href="#" class="btn btn-info">Add to cart</a>
-                                <a href="#" class="btn btn-secondary">View More</a>
-                            </div>
-                        </div>
-                    </div> -->
+                 
                 
                    
 
