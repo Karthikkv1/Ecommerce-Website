@@ -2,6 +2,7 @@
 
 <?php
 include('includes/connect.php');          //20-01-2024
+include('functions/common_function.php'); //23-01-2024
 
 ?>
 
@@ -98,38 +99,9 @@ include('includes/connect.php');          //20-01-2024
                 <div class="row">
                     <!-- // Fetching products and displaying products from the database 21-01-2024 -->
                     <?php
-                    $select_query="Select * from `products` order by rand() limit 0,9";
-                    $result_query=mysqli_query($con,$select_query);
-                    // $row=mysqli_fetch_assoc($result_query);
-                    // echo $row['product_title'];
-                    while($row=mysqli_fetch_assoc($result_query))
-                    {
-                        $product_id = $row['product_id']; //product_id as mentioned in database
-                        $product_title = $row['product_title'];
-                        $product_description = $row['product_description'];
-                        // $product_keywords = $row['product_keywords'];
-                        $product_image1 = $row['product_image1'];
-                        $product_price = $row['product_price'];
-                        $category_id = $row['category_id'];
-                        $brand_id = $row['brand_id'];
 
-                        echo "  <div class='col-md-4 mb-2'>
-                        <div class='card'>
-                            <img src='./admin_area/product_images/ $product_image1' class='card-img-top' alt='$product_title'> 
-                            <div class='card-body'>
-                                <h5 class='card-title'>$product_title</h5>
-                                <p class='card-text'>$product_description
-                           </p>
-                                <a href='#' class='btn btn-info'>Add to cart</a>
-                                <a href='#' class='btn btn-secondary'>View More</a>
-                            </div>
-                        </div>
-                    </div>";
-                        // echo "<br>";
-                        
-                        // $product_image2 = $row['product_image2'];
-                        // $product_image3 = $row['product_image3'];
-                    }
+                    //calling function
+                     getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
 
                      ?>
                  
@@ -158,21 +130,8 @@ include('includes/connect.php');          //20-01-2024
                     </li>
                     <!--20-01-2024-->
                     <?php
-                    $select_brands = "Select * from `brands` ";
-                    $result_brands = mysqli_query($con, $select_brands);
-                    // $row_data=mysqli_fetch_assoc($result_brands); //To fetch data from database
-                    // echo $row_data['brand_title'];  //brand_title because in brand table of database column name is brand_title       
-                    
-                    //To display all the brands in the database
-                    
-                    while ($row_data = mysqli_fetch_assoc($result_brands)) {
-                        $brand_title = $row_data['brand_title'];
-                        $brand_id = $row_data['brand_id']; //brand_id,brand_title from database
-                        echo "  <li class='nav-item '>
-                        <a href='index.php?brand=$brand_id' class='nav-link text-light '>$brand_title</a>  
-                    </li>";
-                    }
-                    //line 202 is for //To call brand name from database and display it in webpage
+                 
+                    getbrands();
                     
                     ?>
 
@@ -189,20 +148,7 @@ include('includes/connect.php');          //20-01-2024
                         </a>
                     </li>
                     <?php
-                    $select_categories = "Select * from `categories` ";
-                    $result_categories = mysqli_query($con, $select_categories);
-                       
-                    
-                    //To display all the categories in the database
-                    
-                    while ($row_data = mysqli_fetch_assoc($result_categories)) {
-                        $category_title = $row_data['category_title'];
-                        $category_id = $row_data['category_id']; //brand_id,brand_title from database
-                        echo "  <li class='nav-item '>
-                        <a href='index.php?category=$category_id' class='nav-link text-light '>$category_title</a>  
-                    </li>";
-                    }
-                    //line 232 is for //To call category name from database and display it in webpage
+                   getcategories();  //23-01-2024
                     
                     ?>
 
