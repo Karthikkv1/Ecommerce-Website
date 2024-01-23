@@ -126,7 +126,7 @@ function get_unique_brands(){
 
     //condition to check isset or not
     if(isset($_GET['brand'])){ //'brand' as mentioned in url when clicking on particular brand for example brand=1
-        $brand_id=$_GET['brand_id']; //23-01-2024
+        $brand_id=$_GET['brand']; //23-01-2024
         
             
        
