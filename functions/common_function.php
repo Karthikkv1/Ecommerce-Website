@@ -10,6 +10,17 @@ function getproducts(){
 
     global $con; //23-01-2024
 
+    //condition to check isset or not
+    if(!isset($_GET['category'])){
+        if(!isset($_GET['brand']))
+        {
+            
+       
+
+    
+
+
+
     $select_query="Select * from `products` order by rand() limit 0,9";
     $result_query=mysqli_query($con,$select_query);
     // $row=mysqli_fetch_assoc($result_query);
@@ -44,6 +55,8 @@ function getproducts(){
     }
 
 }
+}
+}
 
 //displaying brands in side nav
 
@@ -69,7 +82,7 @@ function getbrands(){
 //displaying categories in side nav
 function getcategories(){
     global $con;
-    $select_categories = "Select * from `categories` ";
+     $select_categories = "Select * from `categories` ";
     $result_categories = mysqli_query($con, $select_categories);
        
     
