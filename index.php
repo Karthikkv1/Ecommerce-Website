@@ -102,7 +102,7 @@ include('functions/common_function.php'); //23-01-2024
 
                     //calling function
                      getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
-
+                     get_unique_categories();
                      ?>
                  
                 
