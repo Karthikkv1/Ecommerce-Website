@@ -43,10 +43,10 @@ include('functions/common_function.php'); //23-01-2024
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Products</a>
+                            <a class="nav-link" href="display_all.php">Products</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Register</a>
@@ -62,7 +62,7 @@ include('functions/common_function.php'); //23-01-2024
                         </li>
 
                     </ul>
-                    <form class="d-flex" action="search_product.php" method="get">
+                    <form class="d-flex" action="" method="get">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
                        
                         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
@@ -102,8 +102,9 @@ include('functions/common_function.php'); //23-01-2024
                     <?php
 
                     //calling function
-                     getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
-                     get_unique_categories(); //23-01-2024
+                    search_product(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
+                    // search_product();
+                    get_unique_categories(); //23-01-2024
                      get_unique_brands(); //23-01-2024
                      ?>
                  
@@ -163,11 +164,12 @@ include('functions/common_function.php'); //23-01-2024
         </div>
 
 
-        <!-- Footer -->
-        <div class="bg-info p-3 text-center">
-            <p>All rights reserved Designed by Karthik 2024</P>
-        </div>
+     <!-- Including footer.php -->
 
+     <?php 
+     include("./includes/footer.php"); //24-01-2024
+     
+     ?>
     </div>
 
 

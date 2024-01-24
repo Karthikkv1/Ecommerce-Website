@@ -2,7 +2,7 @@
 
 <?php
 include('includes/connect.php');          //20-01-2024
-include('functions/common_function.php'); //23-01-2024
+// include('functions/common_function.php'); //23-01-2024
 
 ?>
 
@@ -102,7 +102,7 @@ include('functions/common_function.php'); //23-01-2024
                     <?php
 
                     //calling function
-                     getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
+                     get_all_products(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
                     // search_product();
                     get_unique_categories(); //23-01-2024
                      get_unique_brands(); //23-01-2024
@@ -164,12 +164,13 @@ include('functions/common_function.php'); //23-01-2024
         </div>
 
 
-     <!-- Including footer.php -->
+      <!-- Including footer.php -->
 
      <?php 
      include("./includes/footer.php"); //24-01-2024
      
      ?>
+
     </div>
 
 
