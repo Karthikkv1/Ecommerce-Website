@@ -44,7 +44,7 @@ function getproducts(){
                 <p class='card-text'>$product_description
            </p>
                 <a href='#' class='btn btn-info'>Add to cart</a>
-                <a href='#' class='btn btn-secondary'>View More</a>
+                <a href='product_details.php?product_id=$product_id ' class='btn btn-secondary'>View More</a>
             </div>
         </div>
     </div>";
@@ -296,6 +296,12 @@ function search_product(){
     $result_query=mysqli_query($con,$search_query);
     // $row=mysqli_fetch_assoc($result_query);
     // echo $row['product_title'];
+    $num_of_rows=mysqli_num_rows( $result_query);
+
+    //displaying error if searched product is not there //23-01-2024
+    if($num_of_rows==0){
+        echo "<h2 class='text-center text-danger' >No results match.No products found on this category!</h2>";
+    }
     while($row=mysqli_fetch_assoc($result_query))
     {
         $product_id = $row['product_id']; //product_id as mentioned in database
