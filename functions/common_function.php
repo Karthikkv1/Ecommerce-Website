@@ -97,7 +97,7 @@ function get_all_products(){
                 <p class='card-text'>$product_description
            </p>
                 <a href='#' class='btn btn-info'>Add to cart</a>
-                <a href='#' class='btn btn-secondary'>View More</a>
+                <a href='product_details.php?product_id=$product_id ' class='btn btn-secondary'>View More</a> 
             </div>
         </div>
     </div>";
@@ -159,7 +159,7 @@ function get_unique_categories(){
                 <p class='card-text'>$product_description
            </p>
                 <a href='#' class='btn btn-info'>Add to cart</a>
-                <a href='#' class='btn btn-secondary'>View More</a>
+                <a href='product_details.php?product_id=$product_id ' class='btn btn-secondary'>View More</a>
             </div>
         </div>
     </div>";
@@ -220,7 +220,7 @@ function get_unique_brands(){
                 <p class='card-text'>$product_description
            </p>
                 <a href='#' class='btn btn-info'>Add to cart</a>
-                <a href='#' class='btn btn-secondary'>View More</a>
+                <a href='product_details.php?product_id=$product_id ' class='btn btn-secondary'>View More</a>
             </div>
         </div>
     </div>";
@@ -321,7 +321,7 @@ function search_product(){
                 <p class='card-text'>$product_description
            </p>
                 <a href='#' class='btn btn-info'>Add to cart</a>
-                <a href='#' class='btn btn-secondary'>View More</a>
+                <a href='product_details.php?product_id=$product_id ' class='btn btn-secondary'>View More</a>
             </div>
         </div>
     </div>";
