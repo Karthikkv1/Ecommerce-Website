@@ -136,6 +136,7 @@ include('functions/common_function.php'); //23-01-2024
                     //calling function
                     //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
                     // search_product();
+                    view_details(); //25-01-2024
                     get_unique_categories(); //23-01-2024
                     get_unique_brands(); //23-01-2024
                     ?>
