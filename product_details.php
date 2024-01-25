@@ -100,37 +100,7 @@ include('functions/common_function.php'); //23-01-2024
 
             <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-4">
-                        <!-- card 24-01-2024 -->
-                        <div class='card'>
-                            <img src='./Images/1.jpg' class='card-img-top' alt='$product_title'>
-                            <div class='card-body'>
-                                <h5 class='card-title'>$product_title</h5>
-                                <p class='card-text'>$product_description
-                                </p>
-                                <a href='#' class='btn btn-info'>Add to cart</a>
-                                <a href='#' class='btn btn-secondary'>View More</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-8">
-                        <!-- related images -->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h4 class="text-center text-info mb-5">Related products</h4>
-                            </div>
-
-                            <div class="col-md-6">
-                            <img src='./Images/2.jpg' class='card-img-top' alt='$product_title'>
-                            </div>
-
-                            <div class="col-md-6">
-                            <img src='./Images/11.webp' class='card-img-top' alt='$product_title'>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- // Fetching products and displaying products from the database 21-01-2024 -->
+                    
                     <?php
 
                     //calling function
