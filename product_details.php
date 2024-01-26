@@ -56,7 +56,9 @@ include('functions/common_function.php'); //23-01-2024
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup><?php
+                                     cart_item(); //26-01-2024
+                                    ?></sup></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total price:100/-</a>
@@ -72,6 +74,16 @@ include('functions/common_function.php'); //23-01-2024
                 </div>
             </div>
         </nav>
+
+
+
+        
+        <!-- calling cart function 26-01-2024 -->
+
+        <?php 
+        cart();
+        ?>
+
 
         <!-- Second child --> <!-- 10-01-2024 -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">

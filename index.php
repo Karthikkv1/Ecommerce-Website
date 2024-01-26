@@ -55,7 +55,11 @@ include('functions/common_function.php'); //23-01-2024
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>1</sup></a>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                                    <?php
+                                     cart_item();
+                                    ?>
+                                </sup></a> <!--26-01-2024--->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Total price:100/-</a>
@@ -63,13 +67,25 @@ include('functions/common_function.php'); //23-01-2024
 
                     </ul>
                     <form class="d-flex" action="search_product.php" method="get">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search_data">
-                       
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            name="search_data">
+
                         <input type="submit" value="Search" class="btn btn-outline-light" name="search_data_product">
                     </form>
                 </div>
             </div>
         </nav>
+
+
+        <!-- calling cart function 26-01-2024 -->
+
+        <?php
+        cart();
+        ?>
+
+
+
+
 
         <!-- Second child --> <!-- 10-01-2024 -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
@@ -102,20 +118,26 @@ include('functions/common_function.php'); //23-01-2024
                     <?php
 
                     //calling function
-                     getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
+                    getproducts(); //by writing actions or styles in separate files function and calling them here using same function 23-01-2024
                     // search_product();
                     get_unique_categories(); //23-01-2024
-                     get_unique_brands(); //23-01-2024
-                     ?>
-                 
-                
-                   
-
+                    get_unique_brands(); //23-01-2024
+                    
+                    // $ip = getIPAddress(); //26-01-2024
+                    // echo 'User Real IP Address - ' . $ip;  //26-01-2024
                     
 
-                  
 
-                   
+                    ?>
+
+
+
+
+
+
+
+
+
 
                 </div>
 
@@ -133,9 +155,9 @@ include('functions/common_function.php'); //23-01-2024
                     </li>
                     <!--20-01-2024-->
                     <?php
-                 
+
                     getbrands();
-                    
+
                     ?>
 
 
@@ -151,7 +173,7 @@ include('functions/common_function.php'); //23-01-2024
                         </a>
                     </li>
                     <?php
-                   getcategories();  //23-01-2024
+                    getcategories();  //23-01-2024
                     
                     ?>
 
@@ -164,12 +186,12 @@ include('functions/common_function.php'); //23-01-2024
         </div>
 
 
-     <!-- Including footer.php -->
+        <!-- Including footer.php -->
 
-     <?php 
-     include("./includes/footer.php"); //24-01-2024
-     
-     ?>
+        <?php
+        include("./includes/footer.php"); //24-01-2024
+        
+        ?>
     </div>
 
 
