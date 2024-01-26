@@ -506,6 +506,7 @@ function cart_item()
 function total_cart_price(){
     global $con;
     $get_ip_add = getIPAddress();
+    $total_price=0; //26-01-2024 7:09 PM
     $cart_query="Select * from `cart_details` where ip_address='$get_ip_add'"; //26-01-2024 3:50PM
     $result=mysqli_query($con,$cart_query);
 
@@ -517,13 +518,17 @@ while($row=mysqli_fetch_array($result))
     $result_products=mysqli_query($con,$select_products);
     while($row_product_price=mysqli_fetch_array($result_products))       //26-01-2024 3:58PM
     {
-         $product_price=array($row_product_price['price']);
-         $product_values=array_sum($product_price);         //26-01-2024 4:03PM
+         $product_price=array($row_product_price['product_price']);           //[200,300]
+         $product_values=array_sum($product_price);         //26-01-2024 4:03PM  //[500]
+         $total_price+=$product_values; //26-01-2024 7:10 PM //[500]
+
+
 
     }
 
 
 }
+echo $total_price;
 
 }
 

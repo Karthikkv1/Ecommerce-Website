@@ -55,14 +55,19 @@ include('functions/common_function.php'); //23-01-2024
                             <a class="nav-link" href="#">Contact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i><sup>
+                            <a class="nav-link" href="cart.php"><i class="fa-solid fa-cart-shopping"></i><sup>
                                     <?php
-                                     cart_item();
+                                    cart_item();
                                     ?>
                                 </sup></a> <!--26-01-2024--->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total price:100/-</a>
+                            <a class="nav-link" href="#">Total price:         
+                                <?php
+                                total_cart_price();   //26-01-2024 7:22PM
+
+                                ?>/-
+                            </a>
                         </li>
 
                     </ul>
