@@ -173,7 +173,7 @@ include('functions/common_function.php'); //23-01-2024
                                      ?>
 
                                     <td> <?php echo $price_table//26-01-2024 8:31PM ?>/- </td>
-                                    <td><input type="checkbox"></td>
+                                    <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>    <!--27-01-2024 10:41PM-->
                                     <td>
                                         <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Update</button> -->
                                         <input type="submit" value="Update Cart" class="bg-info px-3  py-2 border-0 mx-3" name="update_cart">
@@ -203,6 +203,30 @@ include('functions/common_function.php'); //23-01-2024
             </div>
         </div>
         </form>
+
+        <!-- Functions to remove items from cart 27-01-2024 10:43PM -->
+
+        <?php 
+        function remove_cart_item(){
+            global $con;
+
+            if(isset($_POST['remove_cart'])){
+
+                foreach($_POST['removeitem'] as $remove_id){
+                    echo $remove_id;
+                    $delete_query="Delete from `cart_details` where product_id=$remove_id";
+                    $run_delete=mysqli_query($con,$delete_query);
+
+                    if($run_delete){
+                        echo "<script>window.open('cart.php','_self')></Script>";
+                    }
+                }
+            }
+        }
+
+        echo $remove_item=remove_cart_item();
+        
+        ?>
 
         <!-- Including footer.php -->
 
