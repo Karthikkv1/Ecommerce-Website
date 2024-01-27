@@ -113,6 +113,7 @@ include('functions/common_function.php'); //23-01-2024
 
         <div class="container">
             <div class="row">
+                <form action="" method="post">          <!--27-01-2024 9:16PM-->
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr>
@@ -128,7 +129,7 @@ include('functions/common_function.php'); //23-01-2024
                     <tbody>
                         <!-- Php code to display dynamic data //26-01-2024 8:21 PM -->
                         <?php
-                        global $con;
+                        // global $con;
                         $get_ip_add = getIPAddress();
                         $total_price = 0; //26-01-2024 7:09 PM
                         $cart_query = "Select * from `cart_details` where ip_address='$get_ip_add'"; //26-01-2024 3:50PM
@@ -159,12 +160,25 @@ include('functions/common_function.php'); //23-01-2024
                                         <?php echo $product_title //26-01-2024 8:31PM ?> 
                                     </td>
                                     <td><img src="./admin_area/product_images/ <?php echo $product_image1 ?>" alt="" class="cart_img"></td>
-                                    <td><input type="text" name="" id="" class="form-input w-50"></td>
+                                    <td><input type="text" name="qty" id="" class="form-input w-50"></td>
+
+                                    <?php 
+                                          $get_ip_add = getIPAddress();                                             //27-01-2024 9:24PM
+                                          if(isset($_POST['update_cart'])){
+                                            $quantities=$_POST['qty'];        //27-01-2024 9:28PM
+                                            $update_cart="update `cart_details` set quantity=$quantities where ip_address='$get_ip_add'";
+                                            $result_products_quantity = mysqli_query($con, $update_cart);
+                                            $total_price=$total_price*$quantities; //27-01-2024 9:33PM
+                                          }
+                                     ?>
+
                                     <td> <?php echo $price_table//26-01-2024 8:31PM ?>/- </td>
                                     <td><input type="checkbox"></td>
                                     <td>
-                                        <button class="bg-info px-3  py-2 border-0 mx-3">Update</button>
-                                        <button class="bg-info px-3  py-2 border-0 mx-3">Remove</button>
+                                        <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Update</button> -->
+                                        <input type="submit" value="Update Cart" class="bg-info px-3  py-2 border-0 mx-3" name="update_cart">
+                                        <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Remove</button> -->
+                                        <input type="submit" value="Remove Cart" class="bg-info px-3  py-2 border-0 mx-3" name="remove_cart">
                                     </td>
 
                                 </tr>
@@ -188,6 +202,7 @@ include('functions/common_function.php'); //23-01-2024
                 </div>
             </div>
         </div>
+        </form>
 
         <!-- Including footer.php -->
 
