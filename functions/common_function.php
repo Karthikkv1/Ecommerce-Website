@@ -378,7 +378,7 @@ function view_details()
                 <p class='card-text'>$product_description
            </p>
            <p class='card-text'>Price:$product_price/-</p> 
-           <a href='index.php?add_to_cart=$product_id' class='btn btn-info'>Add to cart</a>
+           <a href='index.php?add_to_cart=$product_id' class='btn btn-info'></a>
                 <a href='index.php' class='btn btn-secondary'>Go Home</a>
             </div>
         </div>

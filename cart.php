@@ -113,120 +113,181 @@ include('functions/common_function.php'); //23-01-2024
 
         <div class="container">
             <div class="row">
-                <form action="" method="post">          <!--27-01-2024 9:16PM-->
-                <table class="table table-bordered text-center">
-                    <thead>
-                        <tr>
-                            <th>Product Title</th>
-                            <th>Product Image</th>
-                            <th>Quantity</th>
-                            <th>Total Price</th>
-                            <th>Remove</th>
-                            <th colspan="2">Operations</th>
-                        </tr>
-                    </thead>
+                <form action="" method="post"> <!--27-01-2024 9:16PM-->
+                    <table class="table table-bordered text-center">
+                        <!-- <thead>
+                            <tr>
+                                <th>Product Title</th>
+                                <th>Product Image</th>
+                                <th>Quantity</th>
+                                <th>Total Price</th>
+                                <th>Remove</th>
+                                <th colspan="2">Operations</th>
+                            </tr>
+                        </thead> -->
 
-                    <tbody>
-                        <!-- Php code to display dynamic data //26-01-2024 8:21 PM -->
+                        <tbody>
+                            <!-- Php code to display dynamic data //26-01-2024 8:21 PM -->
+                            <?php
+                            // global $con;
+                            $get_ip_add = getIPAddress();
+                            $total_price = 0; //26-01-2024 7:09 PM
+                            $cart_query = "Select * from `cart_details` where ip_address='$get_ip_add'"; //26-01-2024 3:50PM
+                            $result = mysqli_query($con, $cart_query);
+
+                            //28-01-2024
+                            $result_count = mysqli_num_rows($result);
+                            if ($result_count > 0) {
+
+                                echo "     <thead>
+                                <tr>
+                                    <th>Product Title</th>
+                                    <th>Product Image</th>
+                                    <th>Quantity</th>
+                                    <th>Total Price</th>
+                                    <th>Remove</th>
+                                    <th colspan='2'>Operations</th>
+                                </tr>
+                            </thead>";
+
+
+
+
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $product_id = $row['product_id'];
+                                    $select_products = "Select * from `products` where product_id='$product_id'"; //26-01-2024 3:55PM
+                                    $result_products = mysqli_query($con, $select_products);
+                                    while ($row_product_price = mysqli_fetch_array($result_products))       //26-01-2024 3:58PM
+                                    {
+                                        $product_price = array($row_product_price['product_price']);           //[200,300]
+                                        $price_table = $row_product_price['product_price'];  //26-01-2024 8:22 PM 
+                                        $product_title = $row_product_price['product_title'];  //26-01-2024 8:25 PM 
+                                        $product_image1 = $row_product_price['product_image1'];  //26-01-2024 8:25 PM 
+                                        //  $product_image2=$row_product_price['product_image2'];  //26-01-2024 8:25 PM 
+                                        //  $product_image3=$row_product_price['product_image3'];  //26-01-2024 8:25 PM 
+                            
+                                        $product_values = array_sum($product_price);         //26-01-2024 4:03PM  //[500]
+                                        $total_price += $product_values; //26-01-2024 7:10 PM //[500]
+                            
+
+
+                                        ?>
+
+                                        <tr>
+                                            <td>
+                                                <?php echo $product_title //26-01-2024 8:31PM ?>
+                                            </td>
+                                            <td><img src="./admin_area/product_images/ <?php echo $product_image1 ?>" alt=""
+                                                    class="cart_img"></td>
+                                            <td><input type="text" name="qty" id="" class="form-input w-50"></td>
+
+                                            <?php
+                                            $get_ip_add = getIPAddress();                                             //27-01-2024 9:24PM
+                                            if (isset($_POST['update_cart'])) {
+                                                $quantities = $_POST['qty'];        //27-01-2024 9:28PM
+                                                $update_cart = "update `cart_details` set quantity=$quantities where ip_address='$get_ip_add'";
+                                                $result_products_quantity = mysqli_query($con, $update_cart);
+                                                $total_price = $total_price * $quantities; //27-01-2024 9:33PM
+                                            }
+                                            ?>
+
+                                            <td>
+                                                <?php echo $price_table //26-01-2024 8:31PM ?>/-
+                                            </td>
+                                            <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>
+                                            <!--27-01-2024 10:41PM-->
+                                            <td>
+                                                <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Update</button> -->
+                                                <input type="submit" value="Update Cart" class="bg-info px-3  py-2 border-0 mx-3"
+                                                    name="update_cart">
+                                                <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Remove</button> -->
+                                                <input type="submit" value="Remove Cart" class="bg-info px-3  py-2 border-0 mx-3"
+                                                    name="remove_cart">
+                                            </td>
+
+                                        </tr>
+
+                                        <?php
+                                        //26-01-2024 8:28PM
+                                    }
+                                }
+
+
+                            }
+
+                            //28-01-2024
+                            else {
+                                echo "<h2 class='text-center text-danger'>Cart is empty</h2>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+
+                    <!-- Sub Total 26-01-2024 -->
+
+                    <div class="d-flex mb-5">
                         <?php
-                        // global $con;
                         $get_ip_add = getIPAddress();
-                        $total_price = 0; //26-01-2024 7:09 PM
+
                         $cart_query = "Select * from `cart_details` where ip_address='$get_ip_add'"; //26-01-2024 3:50PM
                         $result = mysqli_query($con, $cart_query);
 
+                        //28-01-2024
+                        $result_count = mysqli_num_rows($result);
+                        if ($result_count > 0) {
 
-                        while ($row = mysqli_fetch_array($result)) {
-                            $product_id = $row['product_id'];
-                            $select_products = "Select * from `products` where product_id='$product_id'"; //26-01-2024 3:55PM
-                            $result_products = mysqli_query($con, $select_products);
-                            while ($row_product_price = mysqli_fetch_array($result_products))       //26-01-2024 3:58PM
-                            {
-                                $product_price = array($row_product_price['product_price']);           //[200,300]
-                                $price_table = $row_product_price['product_price'];  //26-01-2024 8:22 PM 
-                                $product_title = $row_product_price['product_title'];  //26-01-2024 8:25 PM 
-                                $product_image1 = $row_product_price['product_image1'];  //26-01-2024 8:25 PM 
-                                //  $product_image2=$row_product_price['product_image2'];  //26-01-2024 8:25 PM 
-                                //  $product_image3=$row_product_price['product_image3'];  //26-01-2024 8:25 PM 
-                        
-                                $product_values = array_sum($product_price);         //26-01-2024 4:03PM  //[500]
-                                $total_price += $product_values; //26-01-2024 7:10 PM //[500]
-                        
+                            echo " <h4 class='px-3'>Subtotal:<strong class='text-info'>
+                             $total_price/-
+                        </strong></h4>
+                        <input type='submit' value='Continue Shopping' class='bg-info px-3  py-2 border-0 mx-3'
+                        name='continue_shopping'>
+                    <button class='bg-secondary px-3  py-2 border-0 text-light'><a href='checkout.php' class='text-light text-decoration-none'>CheckOut</a></button>";
+                        } else {
+                            echo "  <input type='submit' value='Continue Shopping' class='bg-info px-3  py-2 border-0 mx-3'
+                            name='continue_shopping'>";
+                        }
 
 
-                                ?>
-                                <tr>
-                                    <td>
-                                        <?php echo $product_title //26-01-2024 8:31PM ?> 
-                                    </td>
-                                    <td><img src="./admin_area/product_images/ <?php echo $product_image1 ?>" alt="" class="cart_img"></td>
-                                    <td><input type="text" name="qty" id="" class="form-input w-50"></td>
-
-                                    <?php 
-                                          $get_ip_add = getIPAddress();                                             //27-01-2024 9:24PM
-                                          if(isset($_POST['update_cart'])){
-                                            $quantities=$_POST['qty'];        //27-01-2024 9:28PM
-                                            $update_cart="update `cart_details` set quantity=$quantities where ip_address='$get_ip_add'";
-                                            $result_products_quantity = mysqli_query($con, $update_cart);
-                                            $total_price=$total_price*$quantities; //27-01-2024 9:33PM
-                                          }
-                                     ?>
-
-                                    <td> <?php echo $price_table//26-01-2024 8:31PM ?>/- </td>
-                                    <td><input type="checkbox" name="removeitem[]" value="<?php echo $product_id ?>"></td>    <!--27-01-2024 10:41PM-->
-                                    <td>
-                                        <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Update</button> -->
-                                        <input type="submit" value="Update Cart" class="bg-info px-3  py-2 border-0 mx-3" name="update_cart">
-                                        <!-- <button class="bg-info px-3  py-2 border-0 mx-3">Remove</button> -->
-                                        <input type="submit" value="Remove Cart" class="bg-info px-3  py-2 border-0 mx-3" name="remove_cart">
-                                    </td>
-
-                                </tr>
-
-                            <?php
-                                    //26-01-2024 8:28PM
-                            }
-
-
+                        if (isset($_POST['continue_shopping'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
                         }
                         ?>
-                    </tbody>
-                </table>
 
-                <!-- Sub Total 26-01-2024 -->
 
-                <div class="d-flex mb-5">
-                    <h4 class="px-3">Subtotal:<strong class="text-info"> <?php echo $total_price//26-01-2024 8:31PM ?>/-</strong></h4>
-                    <a href="index.php"><button class="bg-info px-3  py-2 border-0 mx-3">Continue Shopping</button></a>
-                    <a href="#"><button class="bg-secondary px-3  py-2 border-0 text-light">CheckOut</button></a>
-                </div>
+
+                    </div>
             </div>
         </div>
+
         </form>
 
         <!-- Functions to remove items from cart 27-01-2024 10:43PM -->
 
-        <?php 
-        function remove_cart_item(){
+        <!-- <?php
+        function remove_cart_item()
+        {
             global $con;
 
-            if(isset($_POST['remove_cart'])){
+            if (isset($_POST['remove_cart'])) {
 
-                foreach($_POST['removeitem'] as $remove_id){
+                foreach ($_POST['removeitem'] as $remove_id) {
                     echo $remove_id;
-                    $delete_query="Delete from `cart_details` where product_id=$remove_id";
-                    $run_delete=mysqli_query($con,$delete_query);
+                    $delete_query = "Delete from `cart_details` where product_id=$remove_id";
+                    $run_delete = mysqli_query($con, $delete_query);
 
-                    if($run_delete){
+                    if ($run_delete) {
                         echo "<script>window.open('cart.php','_self')></Script>";
                     }
                 }
+
             }
+
+            // echo $remove_item=remove_cart_item();
         }
 
-        echo $remove_item=remove_cart_item();
-        
-        ?>
+        echo $remove_item = remove_cart_item();
+
+        ?> -->
 
         <!-- Including footer.php -->
 
