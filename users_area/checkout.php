@@ -1,7 +1,7 @@
 <!-- Including connect.php file using php syntax -->
 
 <?php
-include('includes/connect.php');          //20-01-2024
+include('../includes/connect.php');          //20-01-2024
 
 
 ?>
@@ -103,7 +103,7 @@ include('includes/connect.php');          //20-01-2024
                     <!-- PHP Sessions 28-01-2024 -->
                     <?phP
                      if(!isset($_SESSION['username'])){
-                       include('users_area/user_login.php');
+                       include('user_login.php');
 
                      }
 
@@ -125,7 +125,7 @@ include('includes/connect.php');          //20-01-2024
         <!-- Including footer.php -->
 
         <?php
-        include("./includes/footer.php"); //24-01-2024
+        include("../includes/footer.php"); //24-01-2024
         
         ?>
     </div>
