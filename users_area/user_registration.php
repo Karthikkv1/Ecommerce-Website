@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('../includes/connect.php');
 include('../functions/common_function.php');
 ?>
@@ -76,7 +76,8 @@ include('../functions/common_function.php');
 
                     <div class="mt-4 pt-2">
                         <input type="submit" value="Register" class="bg-info py-2 px-3 border-0" name="user_register">
-                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account ?<a href="user_login.php" class="text-danger"> Login </a></p>
+                        <p class="small fw-bold mt-2 pt-1 mb-0">Already have an account ?<a href="user_login.php"
+                                class="text-danger"> Login </a></p>
                     </div>
                 </form>
             </div>
@@ -90,23 +91,25 @@ include('../functions/common_function.php');
 <!-- 31-01-2024 -->
 <!-- PHP code -->
 
-<?php 
+<?php
 
-if(isset($_POST['user_register'])){
+if (isset($_POST['user_register'])) {
     //Initializing variables
-    $user_username=$_POST['user_username'];  //should be matches with name value
-    $user_email=$_POST['user_email'];
-    $user_password=$_POST['user_password'];
-    $conf_user_password=$_POST['conf_user_password'];
-    $user_address=$_POST['user_address'];
-    $user_contact=$_POST['user_contact'];
-    $user_image=$_FILES['user_image']['name'];          //Important for accessing images 31-01-2024
-    $user_image_tmp=$_FILES['user_image']['tmp_name']; 
-    $user_ip=getIPAddress();
+    $user_username = $_POST['user_username'];  //should be matches with name value
+    $user_email = $_POST['user_email'];
+    $user_password = $_POST['user_password'];
+    $conf_user_password = $_POST['conf_user_password'];
+    $user_address = $_POST['user_address'];
+    $user_contact = $_POST['user_contact'];
+    $user_image = $_FILES['user_image']['name'];          //Important for accessing images 31-01-2024
+    $user_image_tmp = $_FILES['user_image']['tmp_name'];
+    $user_ip = getIPAddress();
 
 
     //insert query
-    $insert_query="insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
+    move_uploaded_file( $user_image_tmp,"./user_images/$user_image" ); //31-01-2024 //8:31PM 
+    $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
+    $sql_execute=mysqli_query($con,$insert_query);
 
 }
 ?>
