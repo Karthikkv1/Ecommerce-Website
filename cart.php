@@ -241,7 +241,7 @@ include('functions/common_function.php'); //23-01-2024
                         </strong></h4>
                         <input type='submit' value='Continue Shopping' class='bg-info px-3  py-2 border-0 mx-3'
                         name='continue_shopping'>
-                    <button class='bg-secondary px-3  py-2 border-0 text-light'><a href='checkout.php' class='text-light text-decoration-none'>CheckOut</a></button>";
+                    <button class='bg-secondary px-3  py-2 border-0 text-light'><a href='./users_area/checkout.php' class='text-light text-decoration-none'>CheckOut</a></button>";
                         } else {
                             echo "  <input type='submit' value='Continue Shopping' class='bg-info px-3  py-2 border-0 mx-3'
                             name='continue_shopping'>";
