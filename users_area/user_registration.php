@@ -122,7 +122,7 @@ else if($user_password= $conf_user_password){ //to check password and confirm pa
 }
 
 else{
-   //insert query
+   //insert  query
    move_uploaded_file( $user_image_tmp,"./user_images/$user_image" ); //31-01-2024 //8:31PM  //to insert images into database
    $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
    $sql_execute=mysqli_query($con,$insert_query);
