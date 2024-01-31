@@ -1,5 +1,6 @@
 <?php 
 include('../includes/connect.php');
+include('../functions/common_function.php');
 ?>
 
 <!DOCTYPE html>
@@ -84,3 +85,28 @@ include('../includes/connect.php');
 </body>
 
 </html>
+
+
+<!-- 31-01-2024 -->
+<!-- PHP code -->
+
+<?php 
+
+if(isset($_POST['user_register'])){
+    //Initializing variables
+    $user_username=$_POST['user_username'];  //should be matches with name value
+    $user_email=$_POST['user_email'];
+    $user_password=$_POST['user_password'];
+    $conf_user_password=$_POST['conf_user_password'];
+    $user_address=$_POST['user_address'];
+    $user_contact=$_POST['user_contact'];
+    $user_image=$_FILES['user_image']['name'];          //Important for accessing images 31-01-2024
+    $user_image_tmp=$_FILES['user_image']['tmp_name']; 
+    $user_ip=getIPAddress();
+
+
+    //insert query
+    $insert_query="insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
+
+}
+?>

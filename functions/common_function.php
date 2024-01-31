@@ -2,7 +2,7 @@
 
 //include connect file
 
-include('./includes/connect.php'); //23-01-2024
+// include('./includes/connect.php'); //23-01-2024  //commented on 31-01-2024
 
 //getting products
 
