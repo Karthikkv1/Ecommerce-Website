@@ -105,11 +105,22 @@ if (isset($_POST['user_register'])) {
     $user_image_tmp = $_FILES['user_image']['tmp_name'];
     $user_ip = getIPAddress();
 
+//select query
 
-    //insert query
-    move_uploaded_file( $user_image_tmp,"./user_images/$user_image" ); //31-01-2024 //8:31PM 
-    $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
-    $sql_execute=mysqli_query($con,$insert_query);
+$select_query ="Select * from `user_table` where username='$user_username'"; //to check for user exists or not
+$result=mysqli_query($con,$select_query );
+$row_count=mysqli_num_rows($result); //31-01-2024 9:26PM
+
+if($row_count> 0){
+    echo "<script>alert('Username already exists')</script>";
+}
+else{
+   //insert query
+   move_uploaded_file( $user_image_tmp,"./user_images/$user_image" ); //31-01-2024 //8:31PM  //to insert images into database
+   $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
+   $sql_execute=mysqli_query($con,$insert_query);
+}
+ 
 
 }
 ?>
