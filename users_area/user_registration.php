@@ -117,7 +117,7 @@ if($row_count> 0){
     echo "<script>alert('Username and Email already exists ')</script>";
 }
 
-else if($user_password= $conf_user_password){ //to check password and confirm password should match
+else if($user_password != $conf_user_password){ //to check password and confirm password should match
     echo "<script>alert('Passwords do not match ')</script>";
 
 }
