@@ -98,6 +98,7 @@ if (isset($_POST['user_register'])) {
     $user_username = $_POST['user_username'];  //should be matches with name value
     $user_email = $_POST['user_email'];
     $user_password = $_POST['user_password'];
+    $hash_password=password_hash($user_password,PASSWORD_DEFAULT);  //Password hashing //storing of hashed password instead of real password in database //1-02-2024 //8:30PM
     $conf_user_password = $_POST['conf_user_password'];
     $user_address = $_POST['user_address'];
     $user_contact = $_POST['user_contact'];
@@ -124,7 +125,7 @@ else if($user_password= $conf_user_password){ //to check password and confirm pa
 else{
    //insert  query
    move_uploaded_file( $user_image_tmp,"./user_images/$user_image" ); //31-01-2024 //8:31PM  //to insert images into database
-   $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$user_password','$user_image','$user_ip',' $user_address','$user_contact')";
+   $insert_query = "insert into `user_table` (username,user_email,user_password,user_image,user_ip,user_address,user_mobile) values('$user_username','$user_email','$hash_password','$user_image','$user_ip',' $user_address','$user_contact')";
    $sql_execute=mysqli_query($con,$insert_query);
 }
  
