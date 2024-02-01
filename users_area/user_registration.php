@@ -133,6 +133,8 @@ else{
 
 //Selecting cart items //01-02-2024
 
+$select_cart_items="Select * from `cart_details` where ip_address='$user_ip'";
+
 
 
 }
