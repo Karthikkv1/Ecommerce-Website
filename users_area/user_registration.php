@@ -110,10 +110,10 @@ if (isset($_POST['user_register'])) {
 
 $select_query ="Select * from `user_table` where username='$user_username' or user_email='$user_email'"; //to check for user exists or not
 $result=mysqli_query($con,$select_query );
-$row_count=mysqli_num_rows($result); //31-01-2024 9:26PM
+$rows_count=mysqli_num_rows($result); //31-01-2024 9:26PM
 
 //Condition to check if the user exists or not,if user exists display message as user exists ,if the user doesnot exist allow user for registration
-if($row_count> 0){
+if($rows_count> 0){
     echo "<script>alert('Username and Email already exists ')</script>";
 }
 
