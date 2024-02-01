@@ -135,6 +135,7 @@ else{
 
 $select_cart_items="Select * from `cart_details` where ip_address='$user_ip'";
 $result_cart=mysqli_query($con,$select_cart_items);
+$rows_count=mysqli_num_rows($result_cart);
 
 
 
