@@ -1,3 +1,8 @@
+<?php
+include('../includes/connect.php');
+include('../functions/common_function.php'); //02-02-2024 9:52PM
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,15 +76,35 @@ if(isset($_POST['user_login'])){
 
     $row_count=mysqli_num_rows($result);
     $row_data=mysqli_fetch_assoc($result);
+    $user_ip=getIPAddress();  //02-02-2024  9:19PM
+
+
+    //Cart items
+    $select_query_cart="Select * from `cart_details` where ip_address='$user_ip'";   //02-02-2024  9:18PM
+    $select_cart=mysqli_query($con,$select_query_cart);
+    $row_count_cart=mysqli_num_rows($select_cart);
 
     if($row_count>0){
+        $_SESSION['username'] =$user_username; //02-02-2024
         if(password_verify($user_password,$row_data['user_password'])){              //user_password as in database table
-            echo "<script>alert('Login successfuly') </script>";
+            // echo "<script>alert('Login successfuly') </script>";
+            if($row_count==1 and $row_count_cart==0){
+                $_SESSION['username'] =$user_username;
+                 echo "<script>alert('Login successfuly') </script>";  
+                 echo " <script>window.open('profile.php','_self')</script> ";
+            }
+            else{ //user having items in cart so redirects to payment page //02-02-2024
+                $_SESSION['username'] =$user_username;
+                echo "<script>alert('Login successfuly') </script>";  
+                echo " <script>window.open('payment.php','_self')</script> ";
+            }
         }
         else{
-            echo "<script>alert('Invalid credentials') </script>";
+            
+                echo "<script>alert('Invalid credentials') </script>";
+            
         }
-
+      
     }
     else{
         echo "<script>alert('Invalid credentials') </script>";

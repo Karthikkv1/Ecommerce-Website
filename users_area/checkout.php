@@ -108,7 +108,7 @@ include('../includes/connect.php');          //20-01-2024
                      }
 
                      else{
-                        include('../payment.php'); //1-02-2024
+                        include('payment.php'); //1-02-2024
                      }
                      ?>
 
