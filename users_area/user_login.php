@@ -19,7 +19,7 @@
         <h2 class="text-center">User Login</h2>
         <div class="row d-flex align-items-center justify-content-center mt-5"> <!--30-01-2024-->
             <div class="col-lg-12 col-xl-6">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="" method="post" >
                     <!-- User Name Field -->
                     <div class="form-outline mb-4">
                         <label for="user_username" class="form-label">Username</label>
