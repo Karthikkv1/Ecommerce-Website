@@ -26,6 +26,11 @@ include('functions/common_function.php'); //23-01-2024
     <link rel="stylesheet" href="./style.css">
 
     <title>My store</title>
+    <style>
+        body{
+            overflow-x:hidden;
+        }
+    </style>
 </head>
 
 <body>
@@ -205,7 +210,7 @@ include('functions/common_function.php'); //23-01-2024
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></scrip>
 
 </body>
 
