@@ -53,6 +53,12 @@
 </html>
 
 <!-- //2-02-2024 //8:02PM // Login validation-->
-<?php 
 
+<?php 
+if(isset($_POST['user_login'])){
+    $user_username=$_POST['user_username'];
+    $user_password=$_POST['user_password'];
+    echo $user_password;
+
+}
 ?>
