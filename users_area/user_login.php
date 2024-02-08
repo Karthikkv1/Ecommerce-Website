@@ -1,7 +1,7 @@
 <?php
 include('../includes/connect.php');
 include('../functions/common_function.php'); //02-02-2024 9:52PM
-session_start(); //08-02-2024 10:20PM //session creation
+@session_start(); //08-02-2024 10:23PM //session creation //if particular page is active then only session will start
 ?>
 
 <!DOCTYPE html>
