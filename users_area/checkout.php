@@ -87,7 +87,10 @@ session_start(); //08-02-2024 10:21PM //session creation
                 if(!isset($_SESSION['username'])){
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='#'>Logout</a>
-                </li>"
+                </li>";
+                }
+                else{
+
                 }
                 ?>
 
