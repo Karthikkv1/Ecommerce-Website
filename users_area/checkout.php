@@ -86,12 +86,12 @@ session_start(); //08-02-2024 10:21PM //session creation
                 //For login and logout sessions //08-02-2024 10:27PM
                 if(!isset($_SESSION['username'])){
                     echo "  <li class='nav-item'>
-                    <a class='nav-link' href='#'>Logout</a>
+                    <a class='nav-link' href='./user_login.php'>Logout</a>
                 </li>";
                 }
                 else{
                     echo "  <li class='nav-item'>
-                    <a class='nav-link' href='#'>Login</a>
+                    <a class='nav-link' href='logout.php'>Login</a>
                 </li>";
 
                 }
