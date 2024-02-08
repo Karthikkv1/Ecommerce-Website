@@ -82,6 +82,7 @@ session_start(); //08-02-2024 10:21PM //session creation
                 <li class="nav-item">
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
+                
                 <?php 
                 //For login and logout sessions //08-02-2024 10:27PM
                 if(!isset($_SESSION['username'])){

@@ -3,6 +3,7 @@
 <?php
 include('includes/connect.php');          //20-01-2024
 include('functions/common_function.php'); //23-01-2024
+session_start();
 
 ?>
 
