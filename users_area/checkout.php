@@ -2,6 +2,7 @@
 
 <?php
 include('../includes/connect.php');          //20-01-2024
+session_start(); //08-02-2024 10:21PM //session creation
 
 
 ?>
