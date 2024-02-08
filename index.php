@@ -107,9 +107,20 @@ session_start();
                     <a class="nav-link" href="#">Welcome Guest</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="./users_area/user_login.php">Login</a>
-                </li>
+                <?php 
+                //For login and logout sessions //08-02-2024 10:43PM
+                if(!isset($_SESSION['username'])){
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/user_login.php'>Login</a>
+                </li>";
+                }
+                else{
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='./users_area/logout.php'>Logout</a>
+                </li>";
+
+                }
+                ?>
 
             </ul>
         </nav>
