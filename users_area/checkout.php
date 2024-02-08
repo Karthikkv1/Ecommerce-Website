@@ -90,6 +90,9 @@ session_start(); //08-02-2024 10:21PM //session creation
                 </li>";
                 }
                 else{
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='#'>Login</a>
+                </li>";
 
                 }
                 ?>
