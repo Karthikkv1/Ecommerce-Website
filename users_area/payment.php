@@ -14,13 +14,33 @@ include('../functions/common_function.php'); ?>
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
+<!-- Internal CSS 9-02-2024 -->
+<style>
+    img{
+        width: 100%;
+
+    }
+</style>
+
 <body>
-<div class="container">
-    <h2 class="text-center text-info">Payment Options</h2>
-    <div class="row">
-        <a href="https://www.paypal.com"><img src="../Images/upi.webp" alt=""></a>
+    <!-- PHP code to access user id 09-02-2024 9:21PM -->
+<?php 
+$user_ip=getIPAddress();
+?>
+
+    <div class="container">
+        <h2 class="text-center text-info">Payment Options</h2>
+        <div class="row d-flex justify-content-center align-items-center my-5">
+            <div class="col-md-6">
+                <a href="https://www.paypal.com" target="_blank"><img src="../Images/upi.webp" alt=""></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="order.php"><h2 class="text-center">Pay Offline</h2></a>
+            </div>
+
+        </div>
     </div>
-</div>
 </body>
 
 </html>
