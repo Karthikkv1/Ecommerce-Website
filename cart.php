@@ -93,17 +93,29 @@ session_start();
 
             <ul class="navbar-nav me-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
-                <?php 
+
+                <?php
+
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+        <a class='nav-link' href='#'>Welcome Guest</a>
+    </li>";
+                } else {
+                    echo "  <li class='nav-item'>
+        <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . " </a> 
+    </li>";
+
+                }
+
+
+
+
                 //For login and logout sessions //08-02-2024 10:53PM
-                if(!isset($_SESSION['username'])){
+                if (!isset($_SESSION['username'])) {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Login</a>
                 </li>";
-                }
-                else{
+                } else {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./users_area/logout.php'>Logout</a>
                 </li>";

@@ -28,8 +28,8 @@ session_start();
 
     <title>My store</title>
     <style>
-        body{
-            overflow-x:hidden;
+        body {
+            overflow-x: hidden;
         }
     </style>
 </head>
@@ -68,10 +68,10 @@ session_start();
                                 </sup></a> <!--26-01-2024--->
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Total price:         
+                            <a class="nav-link" href="#">Total price:
                                 <?php
                                 total_cart_price();   //26-01-2024 7:22PM
-
+                                
                                 ?>/-
                             </a>
                         </li>
@@ -103,18 +103,28 @@ session_start();
 
             <ul class="navbar-nav me-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
 
-                <?php 
+                <?php
                 //For login and logout sessions //08-02-2024 10:43PM
-                if(!isset($_SESSION['username'])){
+                
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome Guest</a>
+                </li>";
+                } else {
+                    echo "  <li class='nav-item'>
+                    <a class='nav-link' href='#'>Welcome ".$_SESSION['username']." </a> 
+                </li>";
+
+                }
+
+
+
+                if (!isset($_SESSION['username'])) {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./users_area/user_login.php'>Login</a>
                 </li>";
-                }
-                else{
+                } else {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./users_area/logout.php'>Logout</a>
                 </li>";
@@ -221,9 +231,8 @@ session_start();
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></scrip>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></scrip >
 
-</body>
+</body >
 
-</html>
+</html >

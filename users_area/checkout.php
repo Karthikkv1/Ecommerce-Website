@@ -44,13 +44,13 @@ session_start(); //08-02-2024 10:21PM //session creation
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                            <a class="nav-link active" aria-current="page" href="../index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="display_all.php">Products</a>
+                            <a class="nav-link" href="../display_all.php">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Register</a>
+                            <a class="nav-link" href="user_registration.php">Register</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -79,18 +79,26 @@ session_start(); //08-02-2024 10:21PM //session creation
 
             <ul class="navbar-nav me-auto">
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Welcome Guest</a>
-                </li>
-                
-                <?php 
+
+                <?php
+
+                //Displaying username if user logged in
+                if (!isset($_SESSION['username'])) {
+                    echo " <li class='nav-item'>
+    <a class='nav-link' href='#'>Welcome Guest</a>
+</li>";
+                } else {
+                    echo "  <li class='nav-item'>
+    <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . " </a> 
+</li>";
+
+                }
                 //For login and logout sessions //08-02-2024 10:27PM
-                if(!isset($_SESSION['username'])){
+                if (!isset($_SESSION['username'])) {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='./user_login.php'>Login</a>
                 </li>";
-                }
-                else{
+                } else {
                     echo "  <li class='nav-item'>
                     <a class='nav-link' href='logout.php'>Logout</a>
                 </li>";
@@ -115,15 +123,13 @@ session_start(); //08-02-2024 10:21PM //session creation
                 <div class="row">
                     <!-- PHP Sessions 28-01-2024 -->
                     <?phP
-                     if(!isset($_SESSION['username'])){
-                       include('user_login.php');
+                    if (!isset($_SESSION['username'])) {
+                        include('user_login.php');
 
-                     }
-
-                     else{
+                    } else {
                         include('payment.php'); //1-02-2024
-                     }
-                     ?>
+                    }
+                    ?>
 
                 </div>
 
