@@ -15,7 +15,9 @@ include('../functions/common_function.php'); ?>
 </head>
 
 <body>
-
+<div class="container">
+    <h2 class="text-center text-info"></h2>
+</div>
 </body>
 
 </html>
