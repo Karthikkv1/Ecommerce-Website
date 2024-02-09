@@ -17,6 +17,9 @@ include('../functions/common_function.php'); ?>
 <body>
 <div class="container">
     <h2 class="text-center text-info">Payment Options</h2>
+    <div class="row">
+        
+    </div>
 </div>
 </body>
 
