@@ -18,6 +18,8 @@ include('../functions/common_function.php'); ?>
 <style>
     img{
         width: 50%;
+        margin: auto;
+        display: flex;
 
     }
 </style>
