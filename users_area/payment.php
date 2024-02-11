@@ -41,7 +41,7 @@ $user_id=$run_query['user_id'];
         <h2 class="text-center text-info">Payment Options</h2>
         <div class="row d-flex justify-content-center align-items-center my-5">
             <div class="col-md-6">
-                <a href="https://www.paypal.com" target="_blank"><img src="../Images/upi.webp" alt=""></a>
+                <a href="https://www.paypal.com" target="_blank"><img src="../Images/upi.webp" alt="" class="payment_img"></a>
             </div>
 
             <div class="col-md-6">
