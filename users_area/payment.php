@@ -19,7 +19,7 @@ include('../functions/common_function.php'); ?>
     img{
         width: 50%;
         margin: auto;
-        display: flex;
+        display: block;
 
     }
 </style>
