@@ -16,7 +16,7 @@ include('../functions/common_function.php'); ?>
 
 <!-- Internal CSS 9-02-2024 -->
 <style>
-    img{
+   .payment_img{
         width: 50%;
         margin: auto;
         display: block;
