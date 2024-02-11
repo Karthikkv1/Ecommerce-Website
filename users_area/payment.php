@@ -25,7 +25,12 @@ include('../functions/common_function.php'); ?>
 <body>
     <!-- PHP code to access user id 09-02-2024 9:21PM -->
 <?php 
-$user_ip=getIPAddress();
+$user_ip=getIPAddress();  //11-02-2024
+$get_user="Select * from `user_table` where user_ip=$user_ip";   //11-02-2024   //8:56AM
+$result=mysqli_query($con,$get_user);
+$run_query=mysqli_fetch_array($result);
+
+
 ?>
 
     <div class="container">
