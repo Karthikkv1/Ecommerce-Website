@@ -35,7 +35,7 @@ session_start(); //08-02-2024 10:21PM //session creation
 
         <nav class="navbar navbar-expand-lg  bg-info navbar-light">
             <div class="container-fluid">
-                <img src="./Images/logo.png" alt="" class="logo">
+                <img src="../Images/logo.png" alt="" class="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
