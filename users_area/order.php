@@ -22,6 +22,8 @@ while($row_price=mysqli_fetch_array($result_cart_price)){
     $select_product="Select * from `products` where product_id=$product_id";  //11-02-2024 10:19PM
     $run_price=mysqli_query($con,$select_product);
 
+
+    //11-02-2024 10:32PM
     while($row_product_price=mysqli_fetch_array($run_price))
     {
         $product_price=array($row_product_price['product_price']);
