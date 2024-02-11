@@ -26,6 +26,13 @@ session_start(); //08-02-2024 10:21PM //session creation
     <!-- External css -->
     <link rel="stylesheet" href="./style.css">
 
+    <style>
+        .logo{
+            width: 7%;
+            height:7%;
+        }
+    </style>
+
     <title>My store-Checkout Page</title>
 </head>
 
