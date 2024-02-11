@@ -17,7 +17,7 @@ include('../functions/common_function.php'); ?>
 <!-- Internal CSS 9-02-2024 -->
 <style>
     img{
-        width: 100%;
+        width: 50%;
 
     }
 </style>
