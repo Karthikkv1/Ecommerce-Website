@@ -15,6 +15,7 @@ $cart_query_price="Select * from `cart_details` where ip_address='$get_ip_addres
 
 $result_cart_price=mysqli_query($con,$cart_query_price);
 $invoice_number=mt_rand();
+
 $count_products=mysqli_num_rows($result_cart_price);
 
 while($row_price=mysqli_fetch_array($result_cart_price)){
