@@ -16,6 +16,7 @@ $cart_query_price="Select * from `cart_details` where ip_address='$get_ip_addres
 $result_cart_price=mysqli_query($con,$cart_query_price);
 
 $invoice_number=mt_rand(); //14-02-2024 //9:49PM  //To generate random invoice number
+$status='pending';
 
 
 $count_products=mysqli_num_rows($result_cart_price);
