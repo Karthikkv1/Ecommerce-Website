@@ -16,7 +16,7 @@ $cart_query_price="Select * from `cart_details` where ip_address='$get_ip_addres
 $result_cart_price=mysqli_query($con,$cart_query_price);
 
 $invoice_number=mt_rand(); //14-02-2024 //9:49PM
-echo $invoice_number; //14-02-2024 //9:49PM
+
 
 $count_products=mysqli_num_rows($result_cart_price);
 
@@ -32,7 +32,7 @@ while($row_price=mysqli_fetch_array($result_cart_price)){
     {
         $product_price=array($row_product_price['product_price']);
         $product_value=array_sum($product_price);
-        $total_price+= $product_values;
+        $total_price+= $product_value;
         
     }
 
