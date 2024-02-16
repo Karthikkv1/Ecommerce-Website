@@ -65,7 +65,7 @@ if($result_query){
 
 //Orders Pending //16-02-2024
 
-$insert_pending_orders="Insert into `user_orders` (user_id,amount_due,invoice_number,total_products,order_date,order_status) values($user_id,$subtotal,$invoice_number,$count_products,NOW(),'$status')";
+$insert_pending_orders="Insert into `orders_pending` (user_id,amount_due,invoice_number,total_products,order_date,order_status) values($user_id,$subtotal,$invoice_number,$count_products,NOW(),'$status')";
 
 
 ?>
