@@ -63,9 +63,13 @@ if($result_query){
 }
 
 
-//Orders Pending //16-02-2024
+//Orders Pending //16-02-2024 12:30PM
 
 $insert_pending_orders="Insert into `orders_pending` (user_id,invoice_number,product_id,quantity,order_status) values($user_id,$invoice_number,$product_id,$quantity,'$status')";
+$result_pending_orders=mysqli_query($con,$insert_pending_orders);
 
+//delete items from cart //16-02-2024 12:53PM  //To make cart empty after order finished 
+$empty_cart="Delete from `cart_details` where ip_address='$get_ip_address'";
+$result_delete=mysqli_query($con,$empty_cart);
 
 ?>
