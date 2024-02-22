@@ -40,6 +40,11 @@ session_start();
             /* height: 100%; */
             object-fit: contain;
         }
+        .edit_image{
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
     </style>
 </head>
 
@@ -161,46 +166,64 @@ session_start();
                     </li>
 
                     <?php 
-                    
+                    $username=$_SESSION['username'];              //22-02-2024 3:00PM
+                    $user_image="Select * from `user_table` where username='$username'";
+                    $user_image=mysqli_query($con,$user_image);
+                    $row_image=mysqli_fetch_array($user_image);
+
+                    $user_image=$row_image['user_image'];
+
+                    //user image for li is $user_image=$row_image['user_image']; 22-02-2024 3:17PM
+                    echo "
+                    <li class='nav-item '>
+                        <img src='./user_images/$user_image' class='profile_img my-4' alt=''>  
+                    </li>";
                     ?>
 
-                    <li class="nav-item ">
-                        <img src="../Images/11.webp" class="profile_img my-4" alt="">
-                    </li>
+                   
 
                     <li class="nav-item ">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php">
                         Pending Orders
                         </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?edit_account">
                         Edit Account
                         </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?my_orders">
                         My Orders
                         </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="profile.php?delete_account">
                         Delete Account
                         </a>
                     </li>
 
                     <li class="nav-item ">
-                        <a class="nav-link text-light" href="#">
+                        <a class="nav-link text-light" href="logout.php">
                         Logout
                         </a>
                     </li>
 
                 </ul>
             </div>
-            <div class="col-md-10"></div>
+            <div class="col-md-10 text-center">
+                <?php 
+                get_user_order_details();
+
+                //22-02-2024 4:27PM
+                if(isset($_GET['edit_account'])){
+                    include('edit_account.php');
+                }
+                ?>
+            </div>
         </div>
 
 
