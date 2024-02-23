@@ -18,6 +18,28 @@ if (isset($_GET['order_id'])) {
     $amount_due=$row_fetch['amount_due'];
 }
 
+if(isset($_POST['confirm_payment'])){
+    //Accessing Values from input Field
+    $invoice_number=$_POST['invoice_number'];
+    $amount=$_POST['amount'];
+    $payment_mode=$_POST['payment_mode'];
+
+    //Inserting into database //23-02-2024 11:30AM
+    $insert_query="insert into `user_payments` (order_id,invoice_number,amount,payment_mode) values ($order_id,$invoice_number,$amount,'$payment_mode')";
+    $result=mysqli_query($con,$insert_query);
+
+    if($result){
+        echo "<h3 class='text-center text-light'>Successfully completed the payment</h3>";
+        echo "<script>window.open('profile.php?my_orders','_self')</script>";
+    }
+
+    //To make pending order table to update if payment for the product is done 22-03-2024 11:37AM
+
+    $update_orders="update `user_orders` set order_status='Complete' where order_id=$order_id";
+    $result_orders=mysqli_query($con,$update_orders);
+
+}
+
 ?>
 
 <!DOCTYPE html>
