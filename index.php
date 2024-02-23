@@ -54,9 +54,21 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="display_all.php">Products</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="./users_area/user_registration.php">Register</a>
-                        </li>
+
+                        <?php
+                        //23-02-2024 10:31AM
+                        if (isset($_SESSION['username'])) {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/profile.php'>My Account</a> 
+                        </li>";
+                        } else {
+                            echo "  <li class='nav-item'>
+                            <a class='nav-link' href='./users_area/user_registration.php'>Register</a>
+                        </li>";
+                        }
+
+                        ?>
+                     
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
                         </li>
@@ -113,7 +125,7 @@ session_start();
                 </li>";
                 } else {
                     echo "  <li class='nav-item'>
-                    <a class='nav-link' href='#'>Welcome ".$_SESSION['username']." </a> 
+                    <a class='nav-link' href='#'>Welcome " . $_SESSION['username'] . " </a> 
                 </li>";
 
                 }
