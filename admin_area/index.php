@@ -1,3 +1,10 @@
+<?php
+include('../includes/connect.php');          //23-02-2024 //3:39PM
+include('../functions/common_function.php'); //23-02-2024  //3:39PM
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,10 +19,19 @@
     <!-- Font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />    
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- External css -->
     <link rel="stylesheet" href="../style.css">
+
+    <style>
+        /* 23-02-2024 3:43PM */
+        body {
+            overflow-x: hidden;
+            /* To remove horizontal scroll bar */
+
+        }
+    </style>
 
 
 
@@ -56,16 +72,20 @@
                 </div>
 
                 <div class="button text-center ">
-               <button class="my-3 "><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert Product</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">View Products</a></button>
-               <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert Categories</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
-               <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert Brands</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">View Brands</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
-               <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
+                    <button class="my-3 "><a href="insert_product.php" class="nav-link text-light bg-info my-1">Insert
+                            Product</a></button>
+                    <button><a href="index.php?view_products" class="nav-link text-light bg-info my-1">View
+                            Products</a></button>
+                    <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert
+                            Categories</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
+                    <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert
+                            Brands</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">View Brands</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
+                    <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
 
                 </div>
 
@@ -74,18 +94,22 @@
 
         <!-- Fourth Child -->
         <div class="container my-3">
-            <?php 
-            if(isset($_GET['insert_category'])){
+            <?php
+            if (isset($_GET['insert_category'])) {
                 include('insert_categories.php');
             }
 
-            if(isset($_GET['insert_brand'])){
+            if (isset($_GET['insert_brand'])) {
                 include('insert_brands.php');
             }
 
-            ?>                                 <!-- PHP codes -->                                  
+            //23-02-2024 3:47PM
+            if (isset($_GET['view_products'])) {
+                include('view_products.php');
+            }
+            ?> <!-- PHP codes -->
         </div>
-        
+
         <div class="bg-info p-3 text-center footer1 container-fluid">
             <p>All rights reserved Designed by Karthik 2024</P>
         </div>
@@ -100,5 +124,3 @@
 </body>
 
 </html>
-
-
