@@ -227,6 +227,10 @@ session_start();
                 if(isset($_GET['my_orders'])){
                     include('user_orders.php');
                 }
+                //23-02-2024 2:44PM
+                if(isset($_GET['delete_account'])){
+                    include('delete_account.php');
+                }
                 ?>
             </div>
         </div>
