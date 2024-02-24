@@ -88,10 +88,10 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
                             Products</a></button>
                     <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert
                             Categories</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">View Categories</a></button>
+                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View Categories</a></button>
                     <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert
                             Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">View Brands</a></button>
+                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
@@ -122,6 +122,22 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
             //23-02-2024 9:10PM
             if (isset($_GET['edit_products'])) {
                 include('edit_products.php');
+            }
+
+              //24-02-2024 9:48PM
+              if (isset($_GET['delete_product'])) {
+                include('delete_product.php');
+            }
+
+            
+              //24-02-2024 10:06PM
+              if (isset($_GET['view_categories'])) {
+                include('view_categories.php');
+            }
+
+             //24-02-2024 10:50PM
+             if (isset($_GET['view_brands'])) {
+                include('view_brands.php');
             }
             ?> <!-- PHP codes -->
         </div>
