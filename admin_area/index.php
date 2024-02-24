@@ -31,6 +31,16 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
             /* To remove horizontal scroll bar */
 
         }
+
+        .product_img{
+            width: 100px;
+            object-fit: contain;
+        }
+
+        /* .p{
+            width: 100px;
+            object-fit: contain;
+        } */
     </style>
 
 
@@ -107,12 +117,22 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
             if (isset($_GET['view_products'])) {
                 include('view_products.php');
             }
+
+            
+            //23-02-2024 9:10PM
+            if (isset($_GET['edit_products'])) {
+                include('edit_products.php');
+            }
             ?> <!-- PHP codes -->
         </div>
 
-        <div class="bg-info p-3 text-center footer1 container-fluid">
+        <!-- <div class="bg-info p-3 text-center footer1 container-fluid">
             <p>All rights reserved Designed by Karthik 2024</P>
-        </div>
+        </div> -->
+        <?php
+        include("../includes/footer.php"); //23-02-2024 7:53PM
+        
+        ?>
 
 
     </div>

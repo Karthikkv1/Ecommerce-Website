@@ -17,15 +17,43 @@
     <!-- 23-02-2024  4:01PM-->
 
     <tbody class="bg-secondary text-light">
-   <tr class="text-center">
-    <td>1</td>
-    <td>2</td>
-    <td>3</td>
-    <td>4</td>
-    <td>5</td>
-    <td>6</td>
-    <td><a href="" class="text-danger"><i class="fa-solid fa-pen-to-square"></i></a></td>
-    <td><a href="" class="text-danger"><i class="fa-solid fa-trash"></i></a></td>
-   </tr>
+        <?php
+        //23-02-2024 7:31PM
+        $get_products="Select * from `products`";
+        $result=mysqli_query($con,$get_products);
+
+        $number=0;
+        while($row=mysqli_fetch_assoc($result)){
+            $product_id=$row['product_id'];
+            $product_title=$row['product_title'];
+            $product_image1=$row['product_image1'];
+       
+            $product_price=$row['product_price'];
+            $status=$row['status'];
+            $number++;
+            ?>
+
+          <tr class='text-center'>
+            <td><?php echo $number; ?></td>
+            <td><?php echo  $product_title; ?></td>
+            <td><img src='./product_images/ <?php echo $product_image1; ?>' class='product_img'/></td>
+            <td><?php echo  $product_price; ?>/-</td>
+            <td><?php 
+            $get_count="Select * from `orders_pending` where product_id=$product_id";
+            $result_count=mysqli_query($con,$get_count);
+            $rows_count=mysqli_num_rows($result_count);
+            echo $rows_count;
+            ?></td>
+            <td><?php echo $status;?></td>
+            
+            <td><a href='index.php?edit_products=<?php echo $product_id ?>' class='text-danger'><i class='fa-solid fa-pen-to-square'></i></a></td>
+            <td><a href='' class='text-danger'><i class='fa-solid fa-trash'></i></a></td>
+           </tr>
+           <?php
+        }
+        
+        
+        ?>
+ 
     </tbody>
 </table>
