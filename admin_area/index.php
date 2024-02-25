@@ -16,6 +16,10 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <!-- 25-02-2024 3:18PM Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+
     <!-- Font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
@@ -32,7 +36,7 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
 
         }
 
-        .product_img{
+        .product_img {
             width: 100px;
             object-fit: contain;
         }
@@ -88,10 +92,12 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
                             Products</a></button>
                     <button><a href="index.php?insert_category" class="nav-link text-light bg-info my-1">Insert
                             Categories</a></button>
-                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View Categories</a></button>
+                    <button><a href="index.php?view_categories" class="nav-link text-light bg-info my-1">View
+                            Categories</a></button>
                     <button><a href="index.php?insert_brand" class="nav-link text-light bg-info my-1">Insert
                             Brands</a></button>
-                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View Brands</a></button>
+                    <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View
+                            Brands</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
@@ -118,26 +124,46 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
                 include('view_products.php');
             }
 
-            
+
             //23-02-2024 9:10PM
             if (isset($_GET['edit_products'])) {
                 include('edit_products.php');
             }
 
-              //24-02-2024 9:48PM
-              if (isset($_GET['delete_product'])) {
+            //24-02-2024 9:48PM
+            if (isset($_GET['delete_product'])) {
                 include('delete_product.php');
             }
 
-            
-              //24-02-2024 10:06PM
-              if (isset($_GET['view_categories'])) {
+
+            //24-02-2024 10:06PM
+            if (isset($_GET['view_categories'])) {
                 include('view_categories.php');
             }
 
-             //24-02-2024 10:50PM
-             if (isset($_GET['view_brands'])) {
+            //24-02-2024 10:50PM
+            if (isset($_GET['view_brands'])) {
                 include('view_brands.php');
+            }
+
+            //25-02-2024 8:51AM
+            if (isset($_GET['edit_category'])) {
+                include('edit_category.php');
+            }
+
+            //25-02-2024 10:11AM
+            if (isset($_GET['edit_brands'])) {
+                include('edit_brands.php');
+            }
+
+            //25-02-2024 10:32AM
+            if (isset($_GET['delete_category'])) {
+                include('delete_category.php');
+            }
+
+            //25-02-2024 2:57PM
+            if (isset($_GET['delete_brands'])) {
+                include('delete_brands.php');
             }
             ?> <!-- PHP codes -->
         </div>
@@ -156,6 +182,17 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <!-- 25-02-2024 3:16PM -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
 </body>
 
