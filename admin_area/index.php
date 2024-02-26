@@ -98,9 +98,9 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
                             Brands</a></button>
                     <button><a href="index.php?view_brands" class="nav-link text-light bg-info my-1">View
                             Brands</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All orders</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">All payments</a></button>
-                    <button><a href="" class="nav-link text-light bg-info my-1">List Users</a></button>
+                    <button><a href="index.php?list_orders" class="nav-link text-light bg-info my-1">All orders</a></button>
+                    <button><a href="index.php?list_payments" class="nav-link text-light bg-info my-1">All payments</a></button>
+                    <button><a href="index.php?list_users" class="nav-link text-light bg-info my-1">List Users</a></button>
                     <button><a href="" class="nav-link text-light bg-info my-1">Logout</a></button>
 
                 </div>
@@ -165,6 +165,23 @@ include('../functions/common_function.php'); //23-02-2024  //3:39PM
             if (isset($_GET['delete_brands'])) {
                 include('delete_brands.php');
             }
+            
+            //25-02-2024 3:58PM
+            if (isset($_GET['list_orders'])) {
+                include('list_orders.php');
+            }
+
+             //25-02-2024 4:48PM
+             if (isset($_GET['list_payments'])) {
+                include('list_payments.php');
+            }
+           
+
+              //25-02-2024 7:33PM
+              if (isset($_GET['list_users'])) {
+                include('list_users.php');
+            }
+
             ?> <!-- PHP codes -->
         </div>
 
